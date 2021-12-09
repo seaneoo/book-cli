@@ -1,31 +1,31 @@
 {
-  "name": "book-cli",
-  "version": "1.0.0",
-  "description": "",
-  "main": "bin/index.js",
-  "bin": {
-    "book-cli": "bin/index.js"
-  },
-  "scripts": {
-    "build": "babel src -d bin --extensions .ts && tsc",
-    "link": "npm link",
-    "pack": "npm pack",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Sean O'Connor <so@seano.dev> (https://seano.dev/)",
-  "license": "Unlicense",
-  "keywords": [
-    "cli",
-    "book",
-    "isbn"
-  ],
-  "dependencies": {},
-  "devDependencies": {
-    "@babel/cli": "^7.16.0",
-    "@babel/core": "^7.16.0",
-    "@babel/preset-env": "^7.16.4",
-    "@babel/preset-typescript": "^7.16.0",
-    "@types/node": "^16.11.12",
-    "typescript": "^4.5.2"
-  }
+    "name": "book-cli",
+    "version": "1.0.0",
+    "description": "",
+    "main": "bin/index.js",
+    "bin": {
+        "book-cli": "bin/index.js"
+    },
+    "scripts": {
+        "build": "babel src -d bin --extensions .ts && tsc",
+        "link": "npm link",
+        "pack": "npm pack",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Sean O'Connor <so@seano.dev> (https://seano.dev/)",
+    "license": "Unlicense",
+    "keywords": [
+        "cli",
+        "book",
+        "isbn"
+    ],
+    "dependencies": {},
+    "devDependencies": {
+        "@babel/cli": "^7.16.0",
+        "@babel/core": "^7.16.0",
+        "@babel/preset-env": "^7.16.4",
+        "@babel/preset-typescript": "^7.16.0",
+        "@types/node": "^16.11.12",
+        "typescript": "^4.5.2"
+    }
 }
