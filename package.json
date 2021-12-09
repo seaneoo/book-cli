@@ -11,5 +11,10 @@
   },
   "author": "Sean O'Connor <so@seano.dev> (https://seano.dev/)",
   "license": "Unlicense",
+  "keywords": [
+    "cli",
+    "book",
+    "isbn"
+  ],
   "dependencies": {}
 }
