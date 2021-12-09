@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const hello = "Hello, World!" as string;
-console.log(hello);
+const hello = 'Hello, World!' as string
+console.log(hello)
 
-export {};
+export {}
