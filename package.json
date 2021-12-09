@@ -1,0 +1,15 @@
+{
+  "name": "book-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bin/index.js",
+  "bin": {
+    "book-cli": "bin/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sean O'Connor <so@seano.dev> (https://seano.dev/)",
+  "license": "Unlicense",
+  "dependencies": {}
+}
