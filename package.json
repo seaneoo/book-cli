@@ -23,7 +23,8 @@
     "dependencies": {
         "chalk": "4.1.2",
         "dotenv": "^10.0.0",
-        "node-fetch": "^2.5.12"
+        "node-fetch": "^2.5.12",
+        "ora": "5.4.1"
     },
     "devDependencies": {
         "@babel/cli": "^7.16.0",
