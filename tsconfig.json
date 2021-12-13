@@ -1,9 +1,9 @@
 {
-  "compilerOptions": {
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "isolatedModules": true,
-    "allowSyntheticDefaultImports": true,
-    "outDir": "bin"
-  }
+    "compilerOptions": {
+        "declaration": true,
+        "emitDeclarationOnly": true,
+        "isolatedModules": true,
+        "allowSyntheticDefaultImports": true,
+        "outDir": "bin"
+    }
 }
