@@ -1,9 +1,7 @@
 #!/usr/bin/env node
 
-/**
- * EXAMPLE USING READLINE
- * ** NOT FINAL CODE **
- */
+import * as dotenv from 'dotenv'
+dotenv.config()
 
 import * as readline from 'readline'
 const rl = readline.createInterface({
