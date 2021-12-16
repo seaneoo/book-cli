@@ -7,7 +7,7 @@
         "book-cli": "bin/index.js"
     },
     "scripts": {
-        "build": "babel src -d bin --extensions .ts && tsc",
+        "build": "tsc",
         "dev": "ts-node src/index.ts",
         "link": "npm link",
         "pack": "npm pack",
@@ -21,21 +21,14 @@
         "isbn"
     ],
     "dependencies": {
-        "@babel/runtime": "^7.16.3",
         "chalk": "4.1.2",
         "dotenv": "^10.0.0",
         "node-fetch": "^2.5.12",
         "ora": "5.4.1"
     },
     "devDependencies": {
-        "@babel/cli": "^7.16.0",
-        "@babel/core": "^7.16.0",
-        "@babel/plugin-transform-runtime": "^7.16.4",
-        "@babel/preset-env": "^7.16.4",
-        "@babel/preset-typescript": "^7.16.0",
         "@types/node": "^16.11.12",
         "@types/node-fetch": "^2.5.12",
-        "babel-preset-minify": "^0.5.1",
         "ts-node": "^10.4.0",
         "typescript": "^4.5.2"
     }
