@@ -11,6 +11,10 @@ export type Book = {
     categories?: string[]
 }
 
+/**
+ * Returns a Promise with a payload of either a successful Book or an unknown error
+ * @param isbn 10- or 13-digit string in ISBN format
+ */
 export const search = (isbn: string): Promise<Book> => {
     const uri = `https://www.googleapis.com/books/v1/volumes?q=isbn:${isbn}&key=${BOOKS_API_KEY}`
     return new Promise(async (resolve, reject) => {
