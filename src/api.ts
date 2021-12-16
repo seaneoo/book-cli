@@ -12,6 +12,14 @@ export type Book = {
 }
 
 /**
+ * Returns a Boolean value indicating whether the parameter is a 10- or 13-digit ISBN
+ * @param isbn String to perform the test on
+ */
+export const testISBN = (isbn: string) => {
+    return /^(?=(?:\D*\d){10}(?:(?:\D*\d){3})?$)[\d-]+$/gm.test(isbn)
+}
+
+/**
  * Returns a Promise with a payload of either a successful Book or an unknown error
  * @param isbn 10- or 13-digit string in ISBN format
  */
