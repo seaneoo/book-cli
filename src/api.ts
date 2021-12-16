@@ -3,12 +3,15 @@ const BOOKS_API_KEY = process.env.GKEY
 
 export type Book = {
     title?: string
+    subtitle?: string
     authors?: string[]
     publisher?: string
     publishedDate?: string
     description?: string
+    industryIdentifiers?: [{ type?: string; identifier?: string }]
     pageCount?: number
     categories?: string[]
+    language?: string
 }
 
 /**
