@@ -7,8 +7,9 @@
         "book-cli": "bin/index.js"
     },
     "scripts": {
+        "dev": "ts-node --project ./tsconfig.dev.json src/index.ts",
+        "watch": "nodemon --watch \"src/**\" --ext \"ts\" --exec \"npm run-script dev\"",
         "build": "tsc",
-        "dev": "nodemon --watch \"src/**\" --ext \"ts\" --exec \"ts-node src/index.ts\"",
         "start": "node bin/",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
