@@ -1,8 +1,8 @@
 {
+    "include": ["src"],
+    "exclude": ["node_modules", "bin"],
     "compilerOptions": {
         "declaration": true,
-        "emitDeclarationOnly": true,
-        "isolatedModules": true,
         "allowSyntheticDefaultImports": true,
         "outDir": "bin"
     }
