@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -37,31 +36,32 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-var dotenv = require("dotenv");
-dotenv.config();
-var readline = require("readline");
-var api_1 = require("./api");
-var rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
-rl.question("What is your book's ISBN? ", function (isbn) { return __awaiter(void 0, void 0, void 0, function () {
-    var book;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                console.log("Searching for ISBN ".concat(isbn, "..."));
-                return [4 /*yield*/, (0, api_1.search)(isbn)];
-            case 1:
-                book = _a.sent();
-                console.log(book.title);
-                console.log('by ' + book.authors.join(', '));
-                console.log(book.pageCount + ' pages');
-                rl.close();
-                return [2 /*return*/];
-        }
-    });
-}); });
-rl.on('close', function () {
-    process.exit(0);
-});
+exports.search = void 0;
+var node_fetch_1 = require("node-fetch");
+var BOOKS_API_KEY = process.env.GKEY;
+var search = function (isbn) {
+    var uri = "https://www.googleapis.com/books/v1/volumes?q=isbn:".concat(isbn, "&key=").concat(BOOKS_API_KEY);
+    return new Promise(function (resolve, reject) { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0: return [4 /*yield*/, (0, node_fetch_1["default"])(uri)
+                        .then(function (res) { return res.json(); })
+                        .then(function (json) {
+                        if (json.items.length > 0) {
+                            if (json.items[0].volumeInfo !== undefined) {
+                                resolve(json.items[0].volumeInfo);
+                            }
+                            else
+                                reject;
+                        }
+                        else
+                            reject;
+                    })["catch"](reject)];
+                case 1:
+                    _a.sent();
+                    return [2 /*return*/];
+            }
+        });
+    }); });
+};
+exports.search = search;
