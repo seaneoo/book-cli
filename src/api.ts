@@ -2,13 +2,13 @@ import fetch from 'node-fetch'
 const BOOKS_API_KEY = process.env.GKEY
 
 export type Book = {
-    title: string
-    authors: string[]
-    publisher: string
-    publishedDate: string
-    description: string
-    pageCount: number
-    categories: string[]
+    title?: string
+    authors?: string[]
+    publisher?: string
+    publishedDate?: string
+    description?: string
+    pageCount?: number
+    categories?: string[]
 }
 
 export const search = (isbn: string): Promise<Book> => {
