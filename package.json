@@ -9,8 +9,7 @@
     "scripts": {
         "build": "tsc",
         "dev": "ts-node src/index.ts",
-        "link": "npm link",
-        "pack": "npm pack",
+        "start": "node bin/",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "Sean O'Connor <so@seano.dev> (https://seano.dev/)",
