@@ -42,12 +42,19 @@ const rl = readline.createInterface({
 const yargs_1 = __importDefault(require("yargs"));
 const helpers_1 = require("yargs/helpers");
 (0, yargs_1.default)((0, helpers_1.hideBin)(process.argv)).argv;
+const ora_1 = __importDefault(require("ora"));
+const spinner = (0, ora_1.default)({ text: "Looking for your book! (>'-'<)", spinner: 'point' });
 const api = __importStar(require("./api"));
-rl.question("What is your book's ISBN? ", (isbn) => __awaiter(void 0, void 0, void 0, function* () {
+rl.question("Could you tell me your book's ISBN? ", (isbn) => __awaiter(void 0, void 0, void 0, function* () {
+    spinner.start();
     yield api
         .search(isbn)
-        .then((book) => { })
-        .catch(console.error);
+        .then((book) => {
+        spinner.succeed('I found your book! ^___^');
+    })
+        .catch((err) => {
+        spinner.fail("I'm sorry, I couldn't find your book. Please try again. ＞︿＜");
+    });
     rl.close();
 }));
 rl.on('close', () => {
