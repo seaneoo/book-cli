@@ -16,6 +16,7 @@ yargs(hideBin(process.argv)).argv
 
 import ora from 'ora'
 const spinner = ora({ text: "Looking for your book! (>'-'<)", spinner: 'point' })
+import dayjs from 'dayjs'
 
 import * as api from './api'
 
@@ -25,11 +26,16 @@ rl.question("Could you tell me your book's ISBN? ", async (isbn) => {
         .search(isbn)
         .then((book) => {
             spinner.succeed('I found your book! ^___^')
-            // TODO: Output information on the book
+
+            console.log(`\n${book.title}: ${book.subtitle}`)
+            console.log('by ' + book.authors?.join(', '))
+            console.log(`${book.publisher}, ${dayjs(book.publishedDate, 'YYYY-MM-DD').year()}`)
+            console.log(`${book.pageCount} pages`)
+            console.log(`ISBN ${book.industryIdentifiers?.[0].identifier}\n`)
         })
         .catch((err) => {
             spinner.fail("I'm sorry, I couldn't find your book. Please try again. ＞︿＜")
-            // TODO: Log error codes somewhere(?)
+            console.error(err)
         })
     rl.close()
 })
