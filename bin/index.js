@@ -44,16 +44,24 @@ const helpers_1 = require("yargs/helpers");
 (0, yargs_1.default)((0, helpers_1.hideBin)(process.argv)).argv;
 const ora_1 = __importDefault(require("ora"));
 const spinner = (0, ora_1.default)({ text: "Looking for your book! (>'-'<)", spinner: 'point' });
+const dayjs_1 = __importDefault(require("dayjs"));
 const api = __importStar(require("./api"));
 rl.question("Could you tell me your book's ISBN? ", (isbn) => __awaiter(void 0, void 0, void 0, function* () {
     spinner.start();
     yield api
         .search(isbn)
         .then((book) => {
+        var _a, _b;
         spinner.succeed('I found your book! ^___^');
+        console.log(`\n${book.title}: ${book.subtitle}`);
+        console.log('by ' + ((_a = book.authors) === null || _a === void 0 ? void 0 : _a.join(', ')));
+        console.log(`${book.publisher}, ${(0, dayjs_1.default)(book.publishedDate, 'YYYY-MM-DD').year()}`);
+        console.log(`${book.pageCount} pages`);
+        console.log(`ISBN ${(_b = book.industryIdentifiers) === null || _b === void 0 ? void 0 : _b[0].identifier}\n`);
     })
         .catch((err) => {
         spinner.fail("I'm sorry, I couldn't find your book. Please try again. ＞︿＜");
+        console.error(err);
     });
     rl.close();
 }));
